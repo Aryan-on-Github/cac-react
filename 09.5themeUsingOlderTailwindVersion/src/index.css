@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  min-height: 100%;
+}
+
+body {
+  @apply bg-white text-black dark:bg-gray-900 dark:text-white min-h-screen;
+} /* this will change whole bg if theme is switched*/
+
+/*
+body {
+  @apply bg-white text-black min-h-screen;
+}
+this will keep background white only 
+*/
