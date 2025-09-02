@@ -28,6 +28,7 @@ function TodoForm() {
                 placeholder="Write Todo..."
                 className="w-full border border-black/10 rounded-l-lg px-3 outline-none duration-150 bg-white/20 py-1.5"
                 value={todo} // with setting value to todo, after submitting, the field still shows the last typed text, even though todo state is cleared.
+                // i.e. value = "" after submit, thus placeholder text shows in input field after submitting the todo task.
                 onChange={(e)=>{setTodo(e.target.value)}} //on change, set todo as current input 
             />
             <button type="submit" className="rounded-r-lg px-3 py-1 bg-green-600 text-white shrink-0">

@@ -39,6 +39,7 @@ function App() {
     //if yes, then setTodos(as newTodo) i.e. replace current object with newTodo and add it to new array 
     //else keep prevTodo that is current object
     // then as we use looping through map, push the object to array each time 
+    // here previous todo task object is replaced by new todo task object
   }
 
 
@@ -64,7 +65,7 @@ function App() {
 
   //storing the todos in local storage so that they can be displayed whenevr we go to site
   useEffect(() => {
-    const todo = JSON.parse(localStorage.getItem("todo_key"));  // we convert string of array of objects to array of object(i.e. our original array (todos) )
+    const todo = JSON.parse(localStorage.getItem("todo_key"));  // from setItem, we get the value of todo_key i.e. our todos array in string form. so we convert it back to json
 
     if(todo && todo.length>0) //if todo exists and length>0 i.e. if anything already present then only run (for optmisation purposes)
     {
@@ -74,7 +75,7 @@ function App() {
 
   useEffect(()=>{
 
-    localStorage.setItem("todo_key",JSON.stringify(todos)); //everytime todos change, we sync that todo to local storage
+    localStorage.setItem("todo_key",JSON.stringify(todos)); //everytime todos change, we sync that todo to local storage and add our todos array as value to "todo_key" as key
     
   },[todos])
 
