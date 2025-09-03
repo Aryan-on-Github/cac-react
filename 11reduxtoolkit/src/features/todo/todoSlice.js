@@ -37,9 +37,9 @@ export const todoSlice = createSlice({
         addTodo : (state,action) => {
             const todo = {
                 id : nanoid(),
-                text : action.payload //(payload is object that provides access to )
+                text : action.payload //(payload is input from user here)
             };
-            state.todos.push(todo) // push current value to  
+            state.todos.push(todo) // push current value to todos 
 
         },
 
@@ -48,9 +48,13 @@ export const todoSlice = createSlice({
             // change todos using filter where we dont add the todo back based on id
         },
 
+        updateTodo : (state,action) => {
+            state.todos = state.todos.map((todo)=>todo.id === action.payload.id ? {...todo,text:action.payload.text} : todo)
+        }
+
     }
 
 })
 
-export const {addTodo,removeTodo} = todoSlice.actions //export individual functionalities to use in components
+export const {addTodo,removeTodo, updateTodo} = todoSlice.actions //export individual functionalities to use in components
 export default todoSlice.reducer;
